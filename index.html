@@ -1,1 +1,356 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrinerG</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family: sans-serif;
+      }
+      .container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 15px;
+      }
+      .flex-responsive {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+      }
+      .img-responsive {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        object-fit: cover;
+      }
+      header {
+        background-color: #08240f;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        padding: 15px 20px;
+        color: #ffffff;
+        gap: 15px;
+      }
+      nav {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 10px;
+      }
+      .text-box {
+        background-color: #0f4734;
+        color: white;
+        padding: 20px;
+        width: 100%;
+        box-sizing: border-box;
+      }
+      .hero-title {
+        font-size: clamp(35px, 8vw, 75px);
+        font-weight: bold;
+        letter-spacing: clamp(5px, 2vw, 25px);
+        margin: 0;
+        background: linear-gradient(to right, #1b4965, #2b7a78, #3aafa9, #17252a);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        display: inline-block;
+      }
+      .slider {
+        width: 100%;
+        max-width: 1000px;
+        height: 370px;
+        margin: auto;
+        position: relative;
+        overflow: hidden;
+        border-radius: 15px;
+      }
+      .slider-track {
+        display: flex;
+        gap: 30px;
+        height: 100%;
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        scrollbar-width: none;
+        padding: 30px;
+      }
+      .slider-track::-webkit-scrollbar {
+        display: none;
+      }
+      .slider-track img {
+        width: 250px;
+        height: 100%;
+        object-fit: cover;
+        flex-shrink: 0;
+        border-radius: 35px;
+      }
+      .slider-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 5;
+        background: transparent;
+        border: none;
+        color: white;
+        font-size: 55px;
+        cursor: pointer;
+        text-shadow: 0 2px 5px #555;
+      }
+      .prev { left: 10px; }
+      .next { right: 10px; }
+      footer {
+        background-color: #0f4734;
+        color: #ffffff;
+        padding: 40px 20px 20px;
+      }
+      .footer-cols {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+        justify-content: space-between;
+      }
+      .footer-col {
+        flex: 1 1 250px;
+        font-size: 14px;
+        line-height: 1.6;
+        color: #d1d5db;
+      }
+    </style>
+</head>
+<body>
+
+<!-- Header Section -->
+<header>
+  <div style="font-weight: 800; font-size: 28px; color: #e50914; letter-spacing: 1.5px; display: flex; align-items: center;">
+    TRINERG<span style="font-size: 14px; vertical-align: super; margin-left: 2px;">®</span>
+  </div>
+
+  <nav>
+    <a href="index.html" style="color: #c0dba8; text-decoration: none; font-size: 14px; font-weight: 600; text-transform: uppercase;">HOME</a>
+    <span style="color: #3b523f; font-weight: 300;">|</span>
+    <a href="our-product.html" style="color: #ffffff; text-decoration: none; font-size: 14px; font-weight: 500; text-transform: uppercase;">OUR PRODUCT</a>
+    <span style="color: #3b523f; font-weight: 300;">|</span>
+    <div style="position: relative; display: inline-block;" onmouseenter="showAboutDropdown()" onmouseleave="hideAboutDropdown()">
+  <a href="abutus.html" style="color: #ffffff; text-decoration: none; font-size: 14px; font-weight: 500; text-transform: uppercase; padding-bottom: 5px;">ABOUT US</a>
+  
+  <div id="aboutDropdown" style="display: none; position: absolute; top: 100%; left: 0; background-color: #0b2b1b; min-width: 170px; z-index: 1000; box-shadow: 0px 4px 8px rgba(0,0,0,0.3);">
+    <a href="reword.html" style="color: #c0dba8; text-decoration: none; font-size: 13px; font-weight: 600; text-transform: uppercase; display: block; padding: 10px 15px; border-bottom: 1px solid #14492f;">REWARD SYSTEM</a>
+    <a href="our-core-team.html" style="color: #ffffff; text-decoration: none; font-size: 13px; font-weight: 500; text-transform: uppercase; display: block; padding: 10px 15px;">OUR CORE TEAM</a>
+  </div>
+</div>
+    <span style="color: #3b523f; font-weight: 300;">|</span>
+    <a href="contact-us.html" style="color: #ffffff; text-decoration: none; font-size: 14px; font-weight: 500; text-transform: uppercase;">CONTACT US</a>
+    <span style="color: #3b523f; font-weight: 300;">|</span>
+    <a href="#more" style="color: #ffffff; text-decoration: none; font-size: 14px; font-weight: 400;">More</a>
+
+    <div style="position:relative; margin-left:10px;">
+      <button id="langButton" onclick="toggleLanguage()" style="width:112px;height:42px;background:white;border:none;border-radius:30px;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;gap:8px;">
+        <img id="selectedFlag" src="https://flagcdn.com/w20/us.png" style="width:20px;height:14px;object-fit:cover; border-radius: 2px;">
+        <span id="selectedLang">EN</span>
+        <span>v</span>
+      </button>
+
+      <div id="languageDropdown" style="display:none;position:absolute;top:48px;right:0;width:145px;max-height:220px;overflow-y:auto;background:white;color:#555;box-shadow:0 3px 10px rgba(0,0,0,.25);z-index:999;">
+        <div onclick="selectLanguage('ID','id')" style="height:42px;display:flex;align-items:center;gap:12px;padding:0 15px;cursor:pointer;">
+          <img src="https://flagcdn.com/w20/id.png" style="width:20px;height:14px;">
+          <span>ID</span>
+        </div>
+        <div onclick="selectLanguage('JA','jp')" style="height:42px;display:flex;align-items:center;gap:12px;padding:0 15px;cursor:pointer;">
+          <img src="https://flagcdn.com/w20/jp.png" style="width:20px;height:14px;">
+          <span>JA</span>
+        </div>
+        <div onclick="selectLanguage('KO','kr')" style="height:42px;display:flex;align-items:center;gap:12px;padding:0 15px;cursor:pointer;">
+          <img src="https://flagcdn.com/w20/kr.png" style="width:20px;height:14px;">
+          <span>KO</span>
+        </div>
+        <div onclick="selectLanguage('MS','my')" style="height:42px;display:flex;align-items:center;gap:12px;padding:0 15px;cursor:pointer;">
+          <img src="https://flagcdn.com/w20/my.png" style="width:20px;height:14px;">
+          <span>MS</span>
+        </div>
+        <div onclick="selectLanguage('TH','th')" style="height:42px;display:flex;align-items:center;gap:12px;padding:0 15px;cursor:pointer;">
+          <img src="https://flagcdn.com/w20/th.png" style="width:20px;height:14px;">
+          <span>TH</span>
+        </div>
+        <div onclick="selectLanguage('ZH','cn')" style="height:42px;display:flex;align-items:center;gap:12px;padding:0 15px;cursor:pointer;">
+          <img src="https://flagcdn.com/w20/cn.png" style="width:20px;height:14px;">
+          <span>ZH</span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <a href="login1.html" style="color: #ffffff; text-decoration: none; display: flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 600;">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+      <circle cx="12" cy="7" r="4"></circle>
+    </svg>
+    LOGIN
+  </a>
+</header>
+
+<!-- Banner Image -->
+<div>
+  <img src="1.png" class="img-responsive" alt="My Image">
+</div>
+
+<!-- Text Info Section -->
+<div class="text-box">
+  <h2 style="font-size: 1.2rem; margin-top: 0;">AT THE AGE OF 25, WE START FACING CELLULAR DAMAGE & DEGENERATIONS BY MANY FACTORS.</h2>
+  <p style="font-size: 0.95rem; line-height: 1.5;">
+    Our cells are constantly reproducing, fending off toxins & generating energy.
+    Ageing starts as early as age 25, and that's when the function of cell reproduction & regeneration begins to diminish rapidly.
+    Cellular damage & degeneration results in the weakening of vital organ functions as soon as we reach adulthood.
+    Many other external and internal factors like unhealthy diet, physical trauma, unhealthy bad habits, stress, pollution, 
+    exposure to free radicals, lack of physical exercise and more contribute to cellular damage which accelerate ageing and degeneration of physical and mental health.
+  </p>
+</div>
+
+<!-- Revers Title Section -->
+<div style="text-align: center; max-width: 800px; margin: 30px auto; padding: 0 15px;">
+  <h1 class="hero-title">REVERS</h1>
+  <div style="font-family: Arial, sans-serif; font-size: 13px; color: #1a4d46; letter-spacing: 1.5px; margin: 15px 0 10px; font-weight: 600;">
+      ADVANCED FORMULA IN BOOSTING ENHANCING & OPTIMIZING REGENERATION
+  </div>
+  <p style="font-family: Arial, sans-serif; font-size: 12px; color: #4a4a4a; line-height: 1.8; margin: 0 auto; text-align: center;">
+      REVERZ™ is a unique combination of different amino acids that work synergistically as active precursor of HGH (Human Growth Hormone) that are eventually converted into IGF (Insulin-Like Growth Factor). REVERZ™ is a nutrition supplement that can boost the Human Growth Hormone (HGH) production in the body to maintain optimum health, wellness and youth. REVERZ™ is delivered through two specially developed and easy to dispense molecular intra-oral delivery system - REVERZ™ 1 & REVERZ™ 2.
+  </p>
+</div>
+
+<!-- 3 Image Row -->
+<div class="container flex-responsive" style="margin-bottom: 30px;">
+  <a href="#"><img src="img1.png" alt="" style="width: 100%; max-width: 350px; height: auto;"></a>
+  <a href="#"><img src="img2.png" alt="" style="width: 100%; max-width: 350px; height: auto;"></a>
+  <a href="#"><img src="img3.png" alt="" style="width: 100%; max-width: 350px; height: auto;"></a>
+</div>
+
+<div style="text-align: center; color: rgb(8, 89, 8); padding: 0 15px; font-weight: 600; margin-bottom: 25px;">
+  <p style="margin: 5px 0;">We are bringing people together under the simple idea that everyone deserves a chance to</p>
+  <p style="margin: 5px 0;">unleash their potential and live a youthful, healthy life.</p>
+</div>
+
+<!-- Slider Section -->
+<div class="slider" id="slider">
+  <div class="slider-track" id="sliderTrack" style="border-radius: 30px;">
+    <img src="p1.png" alt="">
+    <img src="p2.png" alt="">
+    <img src="p3.png" alt="">
+    <img src="p4.png" alt="">
+    <img src="p5.png" alt="">
+    <img src="p6.png" alt="">
+    <img src="p7.png" alt="">
+    <img src="p8.png" alt="">
+  </div>
+
+  <button class="slider-btn prev" onclick="moveSlider(-300)">‹</button>
+  <button class="slider-btn next" onclick="moveSlider(300)">›</button>
+</div>
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h3 style="font-size: 18px; font-weight: normal; color: #ffffff; letter-spacing: 1px; margin-top: 0; margin-bottom: 15px; padding-bottom: 8px; border-bottom: 1px solid #d32f2f;">MALAYSIA</h3>
+        <p style="margin: 0 0 6px 0;">TEC Global Sdn. Bhd.</p>
+        <p style="margin: 0 0 6px 0;">(1239042-M) (AJL No. 932224)</p>
+        <p style="margin: 0 0 6px 0;">36-2, Jalan Puteri 1/2,</p>
+        <p style="margin: 0 0 6px 0;">Bandar Puteri, 47100 Puchong,</p>
+        <p style="margin: 0 0 6px 0;">Selangor, Malaysia</p>
+        <div style="margin-top: 15px;">
+          <p style="margin: 0 0 6px 0;">Email : enquiry@trinerg.com</p>
+          <p style="margin: 0 0 6px 0;">Phone : +603-5891 4997</p>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h3 style="font-size: 18px; font-weight: normal; color: #ffffff; letter-spacing: 1px; margin-top: 0; margin-bottom: 15px; padding-bottom: 8px; border-bottom: 1px solid #d32f2f;">INDONESIA</h3>
+        <p style="margin: 0 0 6px 0;">APL Office Tower Lantai 16 Unit 9</p>
+        <p style="margin: 0 0 6px 0;">Podomoro City, Central Park</p>
+        <p style="margin: 0 0 6px 0;">Jl. Letjen S. Parman Kav. 28</p>
+        <p style="margin: 0 0 6px 0;">Kel. Tanjung Duren Selatan Kec.</p>
+        <p style="margin: 0 0 6px 0;">Grogol Petamburan</p>
+        <p style="margin: 0 0 6px 0;">Kota Administrasi Jakarta Barat</p>
+        <p style="margin: 0 0 6px 0;">Provinsi DKI Jakarta</p>
+        <div style="margin-top: 15px;">
+          <p style="margin: 0 0 6px 0;">Phone : +6282125867738</p>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h3 style="font-size: 18px; font-weight: normal; color: #ffffff; letter-spacing: 1px; margin-top: 0; margin-bottom: 15px; padding-bottom: 8px; border-bottom: 1px solid #d32f2f;">PHILIPPINES</h3>
+        <p style="margin: 0 0 6px 0; font-weight: 600; color: #ffffff;">TEC Global Philippines Inc.</p>
+        <p style="margin: 0 0 6px 0;">Sample Address Line 1,</p>
+        <p style="margin: 0 0 6px 0;">Metro Manila, Philippines</p>
+        <div style="margin-top: 15px;">
+          <p style="margin: 0 0 6px 0;">Email : <a href="mailto:ph.enquiry@trinerg.com" style="color: #ffffff; text-decoration: none;">ph.enquiry@trinerg.com</a></p>
+          <p style="margin: 0 0 6px 0;">Phone : <a href="tel:+630000000000" style="color: #ffffff; text-decoration: none;">+63 000 000 0000</a></p>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align: center; font-size: 12px; color: #a0aec0; border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 25px; margin-top: 30px; line-height: 1.6;">
+      <p style="margin: 0 0 15px 0;">© TrinerG. All Rights Reserved. No reproduction without prior permission. Unless otherwise indicated, all trademarks and product images exhibited on this site are the property of TrinerG.</p>
+      <p style="margin: 0;">TEC GLOBAL SDN BHD reserves the right at any time to change the price of the product or change <a href="#" style="color: #38bdf8; text-decoration: underline;">terms and conditions</a> without prior notice.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Language Dropdown Logic
+function toggleLanguage() {
+  const dropdown = document.getElementById("languageDropdown");
+  dropdown.style.display = (dropdown.style.display === "none" || dropdown.style.display === "") ? "block" : "none";
+}
+
+function selectLanguage(language, country) {
+  document.getElementById("selectedLang").innerText = language;
+  document.getElementById("selectedFlag").src = "https://flagcdn.com/w20/" + country + ".png";
+  document.getElementById("languageDropdown").style.display = "none";
+}
+
+// Fixed Slider Scroll Logic
+const track = document.getElementById("sliderTrack");
+
+function moveSlider(amount) {
+  track.scrollLeft += amount;
+}
+
+// Auto Scroll Smooth Loop Fix
+let scrollSpeed = 5;
+let autoScrollInterval;
+
+function startAutoScroll() {
+  autoScrollInterval = setInterval(() => {
+    track.scrollLeft += scrollSpeed;
+    if (track.scrollLeft + track.clientWidth >= track.scrollWidth - 1) {
+      track.scrollLeft = 0; // Reset scroll to beginning
+    }
+  }, 20);
+}
+
+function stopAutoScroll() {
+  clearInterval(autoScrollInterval);
+}
+function showAboutDropdown() {
+  document.getElementById("aboutDropdown").style.display = "block";
+}
+
+function hideAboutDropdown() {
+  document.getElementById("aboutDropdown").style.display = "none";
+}
+track.addEventListener("mouseenter", startAutoScroll);
+track.addEventListener("mouseleave", stopAutoScroll);
+track.addEventListener("touchstart", startAutoScroll);
+track.addEventListener("touchend", stopAutoScroll);
+</script>
+
+</body>
+</html>
