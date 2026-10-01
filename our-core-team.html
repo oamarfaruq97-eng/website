@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Core Team - TRINERG</title>
+     <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family: sans-serif;
+      }
+      .container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 15px;
+      }
+      .flex-responsive {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+      }
+      .img-responsive {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        object-fit: cover;
+      }
+      header {
+        background-color: #08240f;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        padding: 15px 20px;
+        color: #ffffff;
+        gap: 15px;
+      }
+      nav {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 10px;
+      }
+      .text-box {
+        background-color: #0f4734;
+        color: white;
+        padding: 20px;
+        width: 100%;
+        box-sizing: border-box;
+      }
+      .hero-title {
+        font-size: clamp(35px, 8vw, 75px);
+        font-weight: bold;
+        letter-spacing: clamp(5px, 2vw, 25px);
+        margin: 0;
+        background: linear-gradient(to right, #1b4965, #2b7a78, #3aafa9, #17252a);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        display: inline-block;
+      }
+      .slider {
+        width: 100%;
+        max-width: 1000px;
+        height: 370px;
+        margin: auto;
+        position: relative;
+        overflow: hidden;
+        border-radius: 15px;
+      }
+      .slider-track {
+        display: flex;
+        gap: 30px;
+        height: 100%;
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        scrollbar-width: none;
+        padding: 30px;
+      }
+      .slider-track::-webkit-scrollbar {
+        display: none;
+      }
+      .slider-track img {
+        width: 250px;
+        height: 100%;
+        object-fit: cover;
+        flex-shrink: 0;
+        border-radius: 35px;
+      }
+      .slider-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 5;
+        background: transparent;
+        border: none;
+        color: white;
+        font-size: 55px;
+        cursor: pointer;
+        text-shadow: 0 2px 5px #555;
+      }
+      .prev { left: 10px; }
+      .next { right: 10px; }
+      footer {
+        background-color: #0f4734;
+        color: #ffffff;
+        padding: 40px 20px 20px;
+      }
+      .footer-cols {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+        justify-content: space-between;
+      }
+      .footer-col {
+        flex: 1 1 250px;
+        font-size: 14px;
+        line-height: 1.6;
+        color: #d1d5db;
+      }
+    </style>
+</head>
+<body>
+
+<!-- Header Section -->
+<header>
+  <a href="index.html" style="font-weight: 800; font-size: 28px; color: #e50914; letter-spacing: 1.5px; display: flex; align-items: center;">
+    TRINERG<span style="font-size: 14px; vertical-align: super; margin-left: 2px;">®</span>
+  </a>
+
+  <nav>
+    <a href="index.html" style="color: #c0dba8; text-decoration: none; font-size: 14px; font-weight: 600; text-transform: uppercase;">HOME</a>
+    <span style="color: #3b523f; font-weight: 300;">|</span>
+    <a href="our-product.html" style="color: #ffffff; text-decoration: none; font-size: 14px; font-weight: 500; text-transform: uppercase;">OUR PRODUCT</a>
+    <span style="color: #3b523f; font-weight: 300;">|</span>
+    <div style="position: relative; display: inline-block;" onmouseenter="showAboutDropdown()" onmouseleave="hideAboutDropdown()">
+  <a href="abutus.html" style="color: #ffffff; text-decoration: none; font-size: 14px; font-weight: 500; text-transform: uppercase; padding-bottom: 5px;">ABOUT US</a>
+  
+  <div id="aboutDropdown" style="display: none; position: absolute; top: 100%; left: 0; background-color: #0b2b1b; min-width: 170px; z-index: 1000; box-shadow: 0px 4px 8px rgba(0,0,0,0.3);">
+    <a href="reword.html" style="color: #c0dba8; text-decoration: none; font-size: 13px; font-weight: 600; text-transform: uppercase; display: block; padding: 10px 15px; border-bottom: 1px solid #14492f;">REWARD SYSTEM</a>
+    <a href="our-core-team.html" style="color: #ffffff; text-decoration: none; font-size: 13px; font-weight: 500; text-transform: uppercase; display: block; padding: 10px 15px;">OUR CORE TEAM</a>
+  </div>
+     <span style="color: #3b523f; font-weight: 300;">|</span>
+</div>
+    <a href="contact-us.html" style="color: #ffffff; text-decoration: none; font-size: 14px; font-weight: 500; text-transform: uppercase;">CONTACT US</a>
+    <span style="color: #3b523f; font-weight: 300;">|</span>
+    <a href="#more" style="color: #ffffff; text-decoration: none; font-size: 14px; font-weight: 400;">More</a>
+
+    <div style="position:relative; margin-left:10px;">
+      <button id="langButton" onclick="toggleLanguage()" style="width:112px;height:42px;background:white;border:none;border-radius:30px;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;gap:8px;">
+        <img id="selectedFlag" src="https://flagcdn.com/w20/us.png" style="width:20px;height:14px;object-fit:cover; border-radius: 2px;">
+        <span id="selectedLang">EN</span>
+        <span>v</span>
+      </button>
+
+      <div id="languageDropdown" style="display:none;position:absolute;top:48px;right:0;width:145px;max-height:220px;overflow-y:auto;background:white;color:#555;box-shadow:0 3px 10px rgba(0,0,0,.25);z-index:999;">
+        <div onclick="selectLanguage('ID','id')" style="height:42px;display:flex;align-items:center;gap:12px;padding:0 15px;cursor:pointer;">
+          <img src="https://flagcdn.com/w20/id.png" style="width:20px;height:14px;">
+          <span>ID</span>
+        </div>
+        <div onclick="selectLanguage('JA','jp')" style="height:42px;display:flex;align-items:center;gap:12px;padding:0 15px;cursor:pointer;">
+          <img src="https://flagcdn.com/w20/jp.png" style="width:20px;height:14px;">
+          <span>JA</span>
+        </div>
+        <div onclick="selectLanguage('KO','kr')" style="height:42px;display:flex;align-items:center;gap:12px;padding:0 15px;cursor:pointer;">
+          <img src="https://flagcdn.com/w20/kr.png" style="width:20px;height:14px;">
+          <span>KO</span>
+        </div>
+        <div onclick="selectLanguage('MS','my')" style="height:42px;display:flex;align-items:center;gap:12px;padding:0 15px;cursor:pointer;">
+          <img src="https://flagcdn.com/w20/my.png" style="width:20px;height:14px;">
+          <span>MS</span>
+        </div>
+        <div onclick="selectLanguage('TH','th')" style="height:42px;display:flex;align-items:center;gap:12px;padding:0 15px;cursor:pointer;">
+          <img src="https://flagcdn.com/w20/th.png" style="width:20px;height:14px;">
+          <span>TH</span>
+        </div>
+        <div onclick="selectLanguage('ZH','cn')" style="height:42px;display:flex;align-items:center;gap:12px;padding:0 15px;cursor:pointer;">
+          <img src="https://flagcdn.com/w20/cn.png" style="width:20px;height:14px;">
+          <span>ZH</span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <a href="login1.html" style="color: #ffffff; text-decoration: none; display: flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 600;">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+      <circle cx="12" cy="7" r="4"></circle>
+    </svg>
+    LOGIN
+  </a>
+</header>
+</head>
+<body style="margin: 0; padding: 0; font-family: sans-serif; background-color: #ffffff;">
+
+    <!-- Our Core Team Section -->
+    <div style="padding: 60px 0 80px 0; text-align: center;">
+
+        <!-- Section Title -->
+        <h2 style="color: #1e6b5c; font-size: 22px; font-weight: 700; letter-spacing: 1px; margin-bottom: 40px; text-transform: uppercase;">
+            OUR CORE TEAM
+        </h2>
+
+        <!-- Banner Container with Muted Teal Background -->
+        <div style="width: 100%; position: relative; margin-bottom: 30px;">
+            <!-- Team Photo -->
+            <img src="core.png" alt="Recky Tan & Christina Chin" style="max-width: 100%; height: auto; display: block; margin: 0 auto; transform: translateY(20px);">
+        </div>
+
+        <!-- Member Details & Crest Logo -->
+        <div style="display: flex; justify-content: center; align-items: center; gap: 15px; margin-top: 40px;">
+            <!-- Crest / Badge Logo -->
+            <img src="core-logo.png" alt="Crown President Crest" style="width: 60px; height: auto;">
+
+            <!-- Text Details -->
+            <div style="text-align: left;">
+                <h3 style="color: #1e6b5c; font-size: 18px; font-weight: 700; margin: 0 0 4px 0;">
+                    Recky Tan & Christina Chin
+                </h3>
+                <p style="color: #4a5568; font-size: 14px; margin: 0 0 2px 0; text-transform: uppercase;">
+                    TRINERG
+                </p>
+                <p style="color: #4a5568; font-size: 14px; margin: 0; text-transform: uppercase; font-weight: 600;">
+                    CROWN PRESIDENT
+                </p>
+            </div>
+        </div>
+
+        <!-- Single Image Team Section -->
+<div style="background-color: #ffffff; padding: 60px 5%; font-family: sans-serif;">
+
+    <!-- Background Banner with Single Image -->
+    <div style="width: 105%; text-align: center; padding-top: 40px;">
+        <img src="core1.png" alt="Trinerg Presidents" style="max-width: 100%; height: auto; display: block; margin: 0 auto;">
+    </div>
+
+    <!-- Details Section Below Image (4 Columns) -->
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-around; text-align: center; margin-top: 25px;">
+
+        <!-- Member 1 Info -->
+        <div style="flex: 1; min-width: 200px; padding: 10px;">
+            <img src="core-logo1.png" alt="Badge Logo" style="width: 80px; height: auto; margin-bottom: 8px;">
+            <h4 style="color: #1e6b5c; font-size: 15px; font-weight: 700; margin: 0 0 4px 0; text-transform: uppercase;">PAUL CHONG</h4>
+            <p style="color: #4a5568; font-size: 12px; margin: 0; text-transform: uppercase; font-weight: 600;">TRINERG PRESIDENT</p>
+        </div>
+
+        <!-- Member 2 Info -->
+        <div style="flex: 1; min-width: 200px; padding: 10px;">
+            <img src="core-logo1.png" alt="Badge Logo" style="width:  80px; height: auto; margin-bottom: 8px;">
+            <h4 style="color: #1e6b5c; font-size: 15px; font-weight: 700; margin: 0 0 4px 0; text-transform: uppercase;">ANGELLYN TAN</h4>
+            <p style="color: #4a5568; font-size: 12px; margin: 0; text-transform: uppercase; font-weight: 600;">TRINERG PRESIDENT</p>
+        </div>
+
+        <!-- Member 3 Info -->
+        <div style="flex: 1; min-width: 200px; padding: 10px;">
+            <img src="core-logo1.png" alt="Badge Logo" style="width:  80px; height: auto; margin-bottom: 8px;">
+            <h4 style="color: #1e6b5c; font-size: 15px; font-weight: 700; margin: 0 0 4px 0; text-transform: uppercase;">HENDRI GUNAWAN</h4>
+            <p style="color: #4a5568; font-size: 12px; margin: 0; text-transform: uppercase; font-weight: 600;">TRINERG PRESIDENT</p>
+        </div>
+
+        <!-- Member 4 Info -->
+        <div style="flex: 1; min-width: 200px; padding: 10px;">
+            <img src="core-logo1.png" alt="Badge Logo" style="width: 80px; height: auto; margin-bottom: 8px;">
+            <h4 style="color: #1e6b5c; font-size: 14px; font-weight: 700; margin: 0 0 4px 0; text-transform: uppercase;">HERLINA MUHAMMAD & DRG.<br>EFFENDY S DANGKENG, MS</h4>
+            <p style="color: #4a5568; font-size: 12px; margin: 0; text-transform: uppercase; font-weight: 600;">TRINERG PRESIDENT</p>
+        </div>
+
+    </div>
+
+</div>
+    </div>
+
+    <script>
+  // Language Dropdown Logic
+function toggleLanguage() {
+  const dropdown = document.getElementById("languageDropdown");
+  dropdown.style.display = (dropdown.style.display === "none" || dropdown.style.display === "") ? "block" : "none";
+}
+
+function selectLanguage(language, country) {
+  document.getElementById("selectedLang").innerText = language;
+  document.getElementById("selectedFlag").src = "https://flagcdn.com/w20/" + country + ".png";
+  document.getElementById("languageDropdown").style.display = "none";
+}
+
+function showAboutDropdown() {
+  document.getElementById("aboutDropdown").style.display = "block";
+}
+
+function hideAboutDropdown() {
+  document.getElementById("aboutDropdown").style.display = "none";
+}
+</script>
+</body>
+</html>

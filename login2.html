@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page - MSC</title>
+</head>
+
+<body style="margin: 0; padding: 0; font-family: Arial, sans-serif; display: flex; flex-direction: column; min-height: 100vh;">
+
+  <!-- Header Section -->
+  <header style="background-color: #1a1a1a; padding: 10px 50px; display: flex; align-items: center; border-bottom: 2px solid #333;">
+    <a href="index.html" style="background-color: #e50914; color: white; touch-action: manipulation; border-radius: 5px; font-weight: bold; text-decoration: none; padding: 12px 18px; font-size: 16px; letter-spacing: 1px;">
+      TRINERG
+    </a>
+  </header>
+
+  <!-- Main Background Container -->
+  <main style="flex: 1; background: linear-gradient(rgba(0, 100, 200, 0.4), rgba(0, 80, 180, 0.4)), url('image6.png') center/cover no-repeat; display: flex; justify-content: center; align-items: center; padding: 40px 20px;">
+
+    <!-- Card Container -->
+    <div style="background-color: rgba(30, 30, 30, 0.85); width: 350px; border-radius: 16px; padding: 30px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5); backdrop-filter: blur(5px); color: white; text-align: center;">
+
+      <!-- Nav Tabs -->
+      <div style="display: flex; justify-content: center; align-items: center; margin-bottom: 20px; font-size: 14px; color: #ccc;">
+        <a href="login1.html" style="text-decoration: none; color: wheat;">Member Login</a>
+        <span style="margin: 0 15px; color: #666;">|</span>
+        <a href="login2.html" style="text-decoration: none; color: wheat; font-weight: bold;">MSC Login</a>
+      </div>
+
+      <hr style="border: 0; border-top: 1px solid #444; margin-bottom: 25px;">
+
+      <!-- Title -->
+      <h2 style="font-weight: normal; font-size: 22px; margin-bottom: 25px; color: #e0e0e0;">Login as MSC</h2>
+
+      <!-- Form Inputs -->
+      <form style="display: flex; flex-direction: column; gap: 15px;">
+
+        <!-- Username Input -->
+        <div style="border: 1px solid #00aaff; display: flex; align-items: center; padding: 8px 10px; border-radius: 5px;">
+          <span style="margin-right: 10px; opacity: 0.7;">👤</span>
+          <input type="text" placeholder="Username" required style="background: transparent; border: none; outline: none; color: white; width: 100%; font-size: 14px;">
+        </div>
+
+        <!-- Password Input -->
+        <div style="border: 1px solid #00aaff; display: flex; align-items: center; padding: 8px 10px; background-color: rgba(0, 170, 255, 0.05); border-radius: 5px;">
+          <span style="margin-right: 10px; opacity: 0.9;">🔒</span>
+          <input type="password" placeholder="Password" required style="background: transparent; border: none; outline: none; color: white; width: 100%; font-size: 14px;">
+        </div>
+
+        <!-- Security Code Input -->
+        <div style="border: 1px solid #00aaff; display: flex; align-items: center; padding: 8px 10px; border-radius: 5px;">
+          <span style="margin-right: 10px; opacity: 0.7;">★</span>
+          <input type="text" placeholder="Security Code" required style="background: transparent; border: none; outline: none; color: white; width: 100%; font-size: 14px;">
+        </div>
+
+        <!-- Captcha Box -->
+        <div style="background-color: #000; border: 1px solid #333; padding: 10px; font-family: monospace; font-size: 20px; font-weight: bold; letter-spacing: 5px; color: #ffaa00; margin: 10px auto; width: 60%; border-radius: 4px;">
+          791324
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" style="background: transparent; border: 1px solid #666; border-radius: 6px; color: white; padding: 10px; font-size: 16px; cursor: pointer; transition: 0.3s; margin-top: 5px;">
+          Login
+        </button>
+
+      </form>
+
+      <!-- Forgot Password Link -->
+      <div style="margin-top: 15px;">
+        <a href="forgot.html" style="color: #aaa; text-decoration: none; font-size: 13px;">Forgot Password</a>
+      </div>
+
+    </div>
+
+  </main>
+
+</body>
+</html>

@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parallax Text Section</title>
+    <style>
+     * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family: sans-serif;
+      }
+      .container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 15px;
+      }
+      .flex-responsive {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+      }
+      .img-responsive {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        object-fit: cover;
+      }
+      header {
+        background-color: #08240f;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        padding: 15px 20px;
+        color: #ffffff;
+        gap: 15px;
+      }
+      nav {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 10px;
+      }
+      .text-box {
+        background-color: #0f4734;
+        color: white;
+        padding: 20px;
+        width: 100%;
+        box-sizing: border-box;
+      }
+      .hero-title {
+        font-size: clamp(35px, 8vw, 75px);
+        font-weight: bold;
+        letter-spacing: clamp(5px, 2vw, 25px);
+        margin: 0;
+        background: linear-gradient(to right, #1b4965, #2b7a78, #3aafa9, #17252a);
+        -webkit-text-fill-color: transparent;
+        display: inline-block;
+      }
+      .slider {
+        width: 100%;
+        max-width: 1000px;
+        height: 370px;
+        margin: auto;
+        position: relative;
+        overflow: hidden;
+        border-radius: 15px;
+      }
+      .slider-track {
+        display: flex;
+        gap: 30px;
+        height: 100%;
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        scrollbar-width: none;
+        padding: 30px;
+      }
+      .slider-track::-webkit-scrollbar {
+        display: none;
+      }
+      .slider-track img {
+        width: 250px;
+        height: 100%;
+        object-fit: cover;
+        flex-shrink: 0;
+        border-radius: 35px;
+      }
+      .slider-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 5;
+        background: transparent;
+        border: none;
+        color: white;
+        font-size: 55px;
+        cursor: pointer;
+        text-shadow: 0 2px 5px #555;
+      }
+      .prev { left: 10px; }
+      .next { right: 10px; }
+      footer {
+        background-color: #0f4734;
+        color: #ffffff;
+        padding: 40px 20px 20px;
+      }
+      .footer-cols {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+        justify-content: space-between;
+      }
+      .footer-col {
+        flex: 1 1 250px;
+        font-size: 14px;
+        line-height: 1.6;
+        color: #d1d5db;
+      }
+    </style>
+</head>
+<body>
+
+<!-- Header Section -->
+<header>
+  <a href="index.html"  style="font-weight: 800; font-size: 28px; color: #e50914; letter-spacing: 1.5px; display: flex; align-items: center;">
+    TRINERG<span style="font-size: 14px; vertical-align: super; margin-left: 2px;">®</span>
+  </div>
+
+  <nav>
+    <a href="index.html" style="color: #c0dba8; text-decoration: none; font-size: 14px; font-weight: 600; text-transform: uppercase;">HOME</a>
+    <span style="color: #3b523f; font-weight: 300;">|</span>
+    <a href="our-product.html" style="color: #ffffff; text-decoration: none; font-size: 14px; font-weight: 500; text-transform: uppercase;">OUR PRODUCT</a>
+    <span style="color: #3b523f; font-weight: 300;">|</span>
+    <div style="position: relative; display: inline-block;" onmouseenter="showAboutDropdown()" onmouseleave="hideAboutDropdown()">
+  <a href="abutus.html" style="color: #ffffff; text-decoration: none; font-size: 14px; font-weight: 500; text-transform: uppercase; padding-bottom: 5px;">ABOUT US</a>
+  
+  <div id="aboutDropdown" style="display: none; position: absolute; top: 100%; left: 0; background-color: #0b2b1b; min-width: 170px; z-index: 1000; box-shadow: 0px 4px 8px rgba(0,0,0,0.3);">
+    <a href="reword.html" style="color: #c0dba8; text-decoration: none; font-size: 13px; font-weight: 600; text-transform: uppercase; display: block; padding: 10px 15px; border-bottom: 1px solid #14492f;">REWARD SYSTEM</a>
+    <a href="our-core-team.html" style="color: #ffffff; text-decoration: none; font-size: 13px; font-weight: 500; text-transform: uppercase; display: block; padding: 10px 15px;">OUR CORE TEAM</a>
+  </div>
+</div>
+    <span style="color: #3b523f; font-weight: 300;">|</span>
+    <a href="#contact" style="color: #ffffff; text-decoration: none; font-size: 14px; font-weight: 500; text-transform: uppercase;">CONTACT US</a>
+    <span style="color: #3b523f; font-weight: 300;">|</span>
+    <a href="#more" style="color: #ffffff; text-decoration: none; font-size: 14px; font-weight: 400;">More</a>
+
+    <div style="position:relative; margin-left:10px;">
+      <button id="langButton" onclick="toggleLanguage()" style="width:112px;height:42px;background:white;border:none;border-radius:30px;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;gap:8px;">
+        <img id="selectedFlag" src="https://flagcdn.com/w20/us.png" style="width:20px;height:14px;object-fit:cover; border-radius: 2px;">
+        <span id="selectedLang">EN</span>
+        <span>v</span>
+      </button>
+
+      <div id="languageDropdown" style="display:none;position:absolute;top:48px;right:0;width:145px;max-height:220px;overflow-y:auto;background:white;color:#555;box-shadow:0 3px 10px rgba(0,0,0,.25);z-index:999;">
+        <div onclick="selectLanguage('ID','id')" style="height:42px;display:flex;align-items:center;gap:12px;padding:0 15px;cursor:pointer;">
+          <img src="https://flagcdn.com/w20/id.png" style="width:20px;height:14px;">
+          <span>ID</span>
+        </div>
+        <div onclick="selectLanguage('JA','jp')" style="height:42px;display:flex;align-items:center;gap:12px;padding:0 15px;cursor:pointer;">
+          <img src="https://flagcdn.com/w20/jp.png" style="width:20px;height:14px;">
+          <span>JA</span>
+        </div>
+        <div onclick="selectLanguage('KO','kr')" style="height:42px;display:flex;align-items:center;gap:12px;padding:0 15px;cursor:pointer;">
+          <img src="https://flagcdn.com/w20/kr.png" style="width:20px;height:14px;">
+          <span>KO</span>
+        </div>
+        <div onclick="selectLanguage('MS','my')" style="height:42px;display:flex;align-items:center;gap:12px;padding:0 15px;cursor:pointer;">
+          <img src="https://flagcdn.com/w20/my.png" style="width:20px;height:14px;">
+          <span>MS</span>
+        </div>
+        <div onclick="selectLanguage('TH','th')" style="height:42px;display:flex;align-items:center;gap:12px;padding:0 15px;cursor:pointer;">
+          <img src="https://flagcdn.com/w20/th.png" style="width:20px;height:14px;">
+          <span>TH</span>
+        </div>
+        <div onclick="selectLanguage('ZH','cn')" style="height:42px;display:flex;align-items:center;gap:12px;padding:0 15px;cursor:pointer;">
+          <img src="https://flagcdn.com/w20/cn.png" style="width:20px;height:14px;">
+          <span>ZH</span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <a href="login1.html" style="color: #ffffff; text-decoration: none; display: flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 600;">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+      <circle cx="12" cy="7" r="4"></circle>
+    </svg>
+    LOGIN
+  </a>
+</header>
+</head>
+<body style="margin: 0; padding: 0; font-family: sans-serif;">
+
+    
+    <div style="
+        background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('ab.png');
+        height: 100vh;
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: white;
+    ">
+        <h3 style="
+            font-size: 28px;
+            font-weight: 300;
+            letter-spacing: 4px;
+            margin: 0 0 10px 0;
+            text-transform: uppercase;
+        ">WE ARE</h3>
+
+        <h1 style="
+            font-size: 64px;
+            font-weight: 700;
+            letter-spacing: 6px;
+            margin: 0;
+            text-transform: uppercase;
+        ">TRINERG<span style="font-size: 30px; vertical-align: super;">®</span></h1>
+    </div>
+
+    
+    <div style="
+        padding: 60px 20px;
+        background-color: #ffffff;
+        color: #333333;
+        min-height: 100vh;
+        text-align: center;
+    ">
+       <!-- Second Section -->
+<div style="background-color: #f2f2f2; padding: 60px 10%; color: #4a5568; font-family: sans-serif; line-height: 1.6;">
+
+    <!-- Top Paragraphs -->
+    <div style="margin-bottom: 40px;">
+        <p style="font-size: 18px; color: #1e6b5c; font-weight: 600; margin-bottom: 12px;">
+            TrinerG™ was founded by a group of extraordinary people from diverse backgrounds and extensive experience in their respective industries.
+        </p>
+        <p style="font-size: 15px; margin-bottom: 20px; text-align: left;">
+            The Company, incorporated in Malaysia; strongly believes in building relationships to enrich the lives of the people they connect with – be it customers, distributors, or leaders.
+        </p>
+        <p style="font-size: 15px; margin-bottom: 20px; text-align: left;">
+            TrinerG™ is a staunch advocate of network enterprising. We are committed to providing unlimited opportunities for entrepreneurs to gain financial independence and better future for their families through our results-oriented strategy.
+        </p>
+        <p style="font-size: 15px; margin-bottom: 20px; text-align: left;">
+            We are also committed to drive innovation by providing much sought-after premium quality and value-added products that will improve the lives of consumers, community and the environment.
+        </p>
+    </div>
+
+    <!-- 2 Column Grid for Purpose, Mission, Vision, Core Value -->
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 30px;">
+        
+        <!-- Left Column -->
+        <div style="flex: 1; min-width: 280px;">
+            <div style="margin-bottom: 30px;">
+                <h3 style="color: #1e6b5c; font-size: 16px; font-weight: 700; margin-bottom: 8px; letter-spacing: 0.5px;">OUR COMPANY PURPOSE</h3>
+                <p style="font-size: 14px; margin: 0; text-align: left;">People Oriented, Integrity Based, Dream Achieving, Progressing Performance, Contribution to the Society.</p>
+            </div>
+
+            <div>
+                <h3 style="color: #1e6b5c; font-size: 16px; font-weight: 700; margin-bottom: 8px; letter-spacing: 0.5px;">OUR VISION</h3>
+                <p style="font-size: 14px; margin: 0; text-align: left;">Create endless possibilities in making the world younger.</p>
+            </div>
+        </div>
+
+        <!-- Right Column -->
+        <div style="flex: 1; min-width: 280px;">
+            <div style="margin-bottom: 30px;">
+                <h3 style="color: #1e6b5c; font-size: 16px; font-weight: 700; margin-bottom: 8px; letter-spacing: 0.5px;">OUR MISSION</h3>
+                <p style="font-size: 14px; margin: 0; text-align: left;">With new trends, new thought and innovative education, enhancing winning chances in key moment.</p>
+            </div>
+
+            <div>
+                <h3 style="color: #1e6b5c; font-size: 16px; font-weight: 700; margin-bottom: 8px; letter-spacing: 0.5px;">OUR COMPANY CORE VALUE</h3>
+                <p style="font-size: 14px; margin: 0; text-align: left;">INTEGRITY, HEALTH, INNOVATION and ACHIEVEMENT Building TRUST with INTEGRITY Bringing new trends to the world with youthful HEALTH Focusing on empowering business partners with entrepreneurial INNOVATION Ensuring the ACHIEVEMENT of dreams as the ultimate goal of company.</p>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Third Section - Logo Rationale -->
+<div style="background-color: #ffffff; padding: 80px 10%; color: #4a5568; font-family: sans-serif; line-height: 1.6; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 50px;">
+
+    <!-- Left Column: Logo -->
+    <div style="flex: 1; min-width: 280px; text-align: center;">
+        <!-- Image tag for Logo -->
+        <img src="trinerg.png" alt="TRINERG Logo" style="max-width: 100%; height: auto; width: 320px;">
+        
+    </div>
+
+    <!-- Right Column: Description -->
+    <div style="flex: 1; min-width: 280px;">
+        <h3 style="color: #1e6b5c; font-size: 18px; font-weight: 700; margin-bottom: 12px; letter-spacing: 0.5px; text-transform: uppercase;">
+            LOGO RATIONALE
+        </h3>
+        <p style="font-size: 15px; margin: 0; color: #4a5568; text-align: left;">
+            The TRINERG logo conveys the elements of people, products and performance - the three important prerequisites for success. In solid red, the TRINERG logo exemplifies commitment, strength, trustworthiness infused into three powerful energy streams to endeavour ahead.
+        </p>
+    </div>
+
+</div>
+    </div>
+<!-- Footer Section -->
+<footer style="
+  background-color: #0f3d2e; 
+  color: #ffffff; 
+  font-family: Arial, sans-serif; 
+  padding: 60px 40px 30px 40px; 
+  box-sizing: border-box;
+">
+  <div style="
+    max-width: 1200px; 
+    margin: 0 auto;
+  ">
+    
+    <!-- Top Address Columns -->
+    <div style="
+      display: flex; 
+      justify-content: space-between; 
+      align-items: flex-start; 
+      flex-wrap: wrap; 
+      gap: 30px; 
+      margin-bottom: 50px;
+    ">
+      
+      <!-- Column 1: MALAYSIA -->
+      <div style="flex: 1; min-width: 250px; max-width: 320px;">
+        <h4 style="
+          color: #ffffff; 
+          font-size: 16px; 
+          font-weight: normal; 
+          letter-spacing: 1px; 
+          margin: 0 0 10px 0; 
+          border-bottom: 1px solid #1f5e48; 
+          padding-bottom: 8px;
+        ">
+          MALAYSIA
+        </h4>
+        <p style="font-size: 13px; line-height: 1.6; color: #d0d0d0; margin: 0 0 15px 0;">
+          TEC Global Sdn. Bhd.<br>
+          (1239042-M) (AJL No. 932224)<br>
+          36-2, Jalan Puteri 1/2,<br>
+          Bandar Puteri, 47100 Puchong,<br>
+          Selangor, Malaysia
+        </p>
+        <p style="font-size: 13px; line-height: 1.6; color: #d0d0d0; margin: 0;">
+          Email : enquiry@trinerg.com<br>
+          Phone : +603-5891 4997
+        </p>
+      </div>
+
+      <!-- Column 2: INDONESIA -->
+      <div style="flex: 1; min-width: 250px; max-width: 320px;">
+        <div style="display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #1f5e48; padding-bottom: 8px; margin-bottom: 10px;">
+          <h4 style="color: #ffffff; font-size: 16px; font-weight: normal; letter-spacing: 1px; margin: 0;">
+            INDONESIA
+          </h4>
+          
+        </div>
+        <p style="font-size: 13px; line-height: 1.6; color: #d0d0d0; margin: 0 0 15px 0;">
+          APL Office Tower Lantai 16 Unit 9<br>
+          Podomoro City, Central Park<br>
+          Jl. Letjen S. Parman Kav. 28<br>
+          Kel. Tanjung Duren Selatan Kec.<br>
+          Grogol Petamburan<br>
+          Kota Administrasi Jakarta Barat<br>
+          Provinsi DKI Jakarta
+        </p>
+        <p style="font-size: 13px; line-height: 1.6; color: #d0d0d0; margin: 0;">
+          Phone : +6282125867738
+        </p>
+      </div>
+
+      <!-- Column 3: PHILIPPINES -->
+      <div style="flex: 1; min-width: 250px; max-width: 320px;">
+        <h4 style="
+          color: #ffffff; 
+          font-size: 16px; 
+          font-weight: normal; 
+          letter-spacing: 1px; 
+          margin: 0 0 10px 0; 
+          border-bottom: 1px solid #1f5e48; 
+          padding-bottom: 8px;
+        ">
+          PHILIPPINES
+        </h4>
+      </div>
+
+    </div>
+
+    <!-- Bottom Copyright & Disclaimer -->
+    <div style="text-align: center; border-top: 1px solid #154c3a; padding-top: 25px;">
+      <p style="font-size: 12px; color: #cccccc; line-height: 1.6; margin: 0 0 12px 0;">
+        © TrinerG. All Rights Reserved. No reproduction without prior permission. Unless otherwise indicated, all trademarks<br>
+        and product images exhibited on this site are the property of TrinerG.
+      </p>
+      <p style="font-size: 12px; color: #cccccc; margin: 0;">
+        TEC GLOBAL SDN BHD reserves the right at any time to change the price of the product or change 
+        <a href="#" style="color: #4da6ff; text-decoration: underline;">terms and conditions</a> 
+        without prior notice.
+      </p>
+    </div>
+</footer>
+<script>
+  // Language Dropdown Logic
+function toggleLanguage() {
+  const dropdown = document.getElementById("languageDropdown");
+  dropdown.style.display = (dropdown.style.display === "none" || dropdown.style.display === "") ? "block" : "none";
+}
+
+function selectLanguage(language, country) {
+  document.getElementById("selectedLang").innerText = language;
+  document.getElementById("selectedFlag").src = "https://flagcdn.com/w20/" + country + ".png";
+  document.getElementById("languageDropdown").style.display = "none";
+}
+function showAboutDropdown() {
+  document.getElementById("aboutDropdown").style.display = "block";
+}
+
+function hideAboutDropdown() {
+  document.getElementById("aboutDropdown").style.display = "none";
+}
+</script>
+</body>
+</html>
